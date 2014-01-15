@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    title Omnicoin Mining Calculator
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/css/gumby.css')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js")
+    script(src="/js/gumby.min.js")
+    script(src="/js/plugins.js")
+    script(src="/js/main.js")
+  body
+    .navbar(gumby-fixed="top")
+      .row
+        a.toggle(href="#")
+          .icon-menu
+        h4.twelve.columns.logo(style="color:white !important;")
+          a(href="/") Omnicoin Mining Calculator
+    .row
+      .twelve.columns
+        block content

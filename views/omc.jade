@@ -1,0 +1,64 @@
+extends layout
+
+block content
+
+	script(type="text/javascript").
+		$(document).on("ready", function() {
+			$("#diff").keyup(function() {
+				calculateOmc();
+			});
+			$("#hrate").keyup(function() {
+				calculateOmc();
+			});
+		});
+		var diff,
+			hrate,
+			coinsPerYear,
+			htime,
+			blocksPerYear,
+			bcoins = 1000.0;
+			var calculateOmc = function() {
+			diff = document.getElementById("diff").value;
+			hrate= document.getElementById("hrate").value;
+			htime = diff * (Math.pow(2.0, 32) / (hrate * 1000.0));
+			blocksPerYear = (365.25 * 24.0 * 60.0 * 60.0) / htime;
+			coinsPerYear = bcoins * blocksPerYear;
+			document.getElementById("cpd").value = (coinsPerYear / 365.25).toFixed(8);
+			document.getElementById("cpm").value = (coinsPerYear / 12).toFixed(8);
+			document.getElementById("cpy").value = coinsPerYear.toFixed(8);
+		};
+	p.
+		This calculator is provided free of charge to gain a rough approximation 
+		of how many Omnicoins you can earn within a given time period.
+	br
+	table
+		tr
+			td
+				label(for="diff") Difficulty:
+			td
+				input(type="text", name="diff", value!=difficulty)#diff
+		tr
+			td
+				label(for="hrate") Hash Rate (KH/s):
+			td
+				input(type="text", name="hrate")#hrate
+	div.medium.primary.btn
+		a(href="#", onClick="calculateOmc();return(false);") Calculate 
+		//- TODO: Action Hooks via jQuery
+	hr
+	table
+		tr
+			td
+				label(for="cpd") OMC Per Day:
+			td
+				input(type="text", name="cpd", disabled)#cpd
+		tr
+			td
+				label(for="cpm") OMC Per Month:
+			td
+				input(type="text", name="cpm", disabled)#cpm
+		tr
+			td
+				label(for="cpy") OMC Per Year:
+			td
+				input(type="text", name="cpy", disabled)#cpy
