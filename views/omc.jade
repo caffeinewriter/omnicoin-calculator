@@ -24,8 +24,8 @@ block content
 			blocksPerYear = (365.25 * 24.0 * 60.0 * 60.0) / htime;
 			coinsPerYear = bcoins * blocksPerYear;
 			document.getElementById("cpd").value = (coinsPerYear / 365.25).toFixed(8);
+			document.getElementById("cpw").value = (coinsPerYear / 52).toFixed(8);
 			document.getElementById("cpm").value = (coinsPerYear / 12).toFixed(8);
-			document.getElementById("cpy").value = coinsPerYear.toFixed(8);
 		};
 	p.
 		This calculator is provided free of charge to gain a rough approximation 
@@ -44,7 +44,6 @@ block content
 				input(type="text", name="hrate")#hrate
 	div.medium.primary.btn
 		a(href="#", onClick="calculateOmc();return(false);") Calculate 
-		//- TODO: Action Hooks via jQuery
 	hr
 	table
 		tr
@@ -54,11 +53,20 @@ block content
 				input(type="text", name="cpd", disabled)#cpd
 		tr
 			td
+				label(for="cpw") OMC Per Week:
+			td
+				input(type="text", name="cpw", disabled)#cpw
+		tr
+			td
 				label(for="cpm") OMC Per Month:
 			td
 				input(type="text", name="cpm", disabled)#cpm
-		tr
-			td
-				label(for="cpy") OMC Per Year:
-			td
-				input(type="text", name="cpy", disabled)#cpy
+	hr
+	h3 Changelog
+	ul.disc
+		li [01/15/2014]Now it grabs the difficulty automatically!
+		li [01/15/2014]Moving it to its own independent site.
+		li [01/15/2014]Now it'll calculate as fast as you can type.
+		li [01/15/2014]Moving the domain to w1n5t0n.pw, since I had that sitting around.
+		li [01/15/2014]Open Sourced on Github! Have at ye! Submit pull requests if you can improve upon it!
+		li [01/15/2014]Removed Coins Per Year, because of Block Halving every 6 months, instead replacing it with Coins Per Week.
