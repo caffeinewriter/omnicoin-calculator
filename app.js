@@ -29,8 +29,16 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req,res) {
-	request({uri: 'http://omc.chains.doctor-blue.net/chain/Omnicoin/q/getdifficulty'}, function(err, resp, body) {
-    	res.render('omc', { difficulty: body });
+	request({
+		uri: 'http://omc.chains.doctor-blue.net/chain/Omnicoin/q/getdifficulty',
+		timeout: 250
+}, function(err, resp, body) {
+		if (err) {
+			res.render('omc', { difficulty: "ERR: CANNOT CONNECT"})
+		}
+		else {
+    		res.render('omc', { difficulty: body });
+    	}
   	});
   //res.render('omc', { difficulty: difficulty }); 
 });
