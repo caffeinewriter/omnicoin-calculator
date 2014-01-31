@@ -31,7 +31,7 @@ if ('development' == app.get('env')) {
 app.get('/', function(req,res) {
 	request({
 		uri: 'http://omc.chains.doctor-blue.net/chain/Omnicoin/q/getdifficulty',
-		timeout: 100
+		timeout: 1000
 }, function(err, resp, body) {
 		if (err) {
 			res.render('omc', { difficulty: "API DOWN"})
