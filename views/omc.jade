@@ -21,7 +21,7 @@ block content
 			diff = document.getElementById("diff").value;
 			hrate= document.getElementById("hrate").value;
 			htime = diff * (Math.pow(2.0, 32) / (hrate * 1000.0));
-			blocksPerYear = (365.25 * 24.0 * 60.0 * 60.0) / htime;
+			blocksPerYear = (365.25 * 1440.0) / htime;
 			coinsPerYear = bcoins * blocksPerYear;
 			document.getElementById("cpd").value = (coinsPerYear / 365.25).toFixed(8);
 			document.getElementById("cpw").value = (coinsPerYear / 52).toFixed(8);
@@ -71,3 +71,4 @@ block content
 		li [01/15/2014]Open Sourced on Github! Have at ye! Submit pull requests if you can improve upon it!
 		li [01/15/2014]Removed Coins Per Year, because of Block Halving every 6 months, instead replacing it with Coins Per Week.
 		li [01/19/2014]Added a workaround so the site will load even when the API is down.
+		li [02/02/2014]Erm... Fixed calculations. Serious error on my end. Carry on. Because I can math.
