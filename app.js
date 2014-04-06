@@ -31,7 +31,7 @@ if ('development' == app.get('env')) {
 app.get('/', function(req,res) {
 	request({
 		uri: 'http://pool.omnicoin.pw/index.php?page=api&action=getdifficulty&api_key=18040a59c46fabfb4d4c3977a21e80c46fda669fd942320666c8b7b58b4c5a9e',
-		timeout: 2000
+		timeout: 3000
 }, function(err, resp, body) {
 		if (err) {
 			res.render('omc', { difficulty: "API DOWN"})
