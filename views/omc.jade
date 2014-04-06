@@ -16,12 +16,12 @@ block content
 			coinsPerYear,
 			htime,
 			blocksPerYear,
-			bcoins = 1000.0;
+			bcoins = 66.85;
 			var calculateOmc = function() {
 			diff = document.getElementById("diff").value;
 			hrate= document.getElementById("hrate").value;
 			htime = diff * (Math.pow(2.0, 32) / (hrate * 1000.0));
-			blocksPerYear = (365.25 * 1440.0) / htime;
+			blocksPerYear = (365.25 * 24.0 * 60.0 * 20.0) / htime;
 			coinsPerYear = bcoins * blocksPerYear;
 			document.getElementById("cpd").value = (coinsPerYear / 365.25).toFixed(8);
 			document.getElementById("cpw").value = (coinsPerYear / 52).toFixed(8);
