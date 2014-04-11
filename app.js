@@ -30,7 +30,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', function(req,res) {
 	request({
-		uri: 'http://pool.omnicoin.pw/index.php?page=api&action=getdifficulty&api_key=18040a59c46fabfb4d4c3977a21e80c46fda669fd942320666c8b7b58b4c5a9e',
+		uri: 'http://omnicoinexplorer.com/chain/OmniCoin/q/getdifficulty',
 		timeout: 3000
 }, function(err, resp, body) {
 		if (err) {
@@ -38,8 +38,7 @@ app.get('/', function(req,res) {
 		}
 		else {
 			console.log(body);
-			diff = JSON.parse(body);
-    		res.render('omc', { difficulty: diff.getdifficulty.data });
+    		res.render('omc', { difficulty: body });
     	}
   	});
   //res.render('omc', { difficulty: difficulty }); 
