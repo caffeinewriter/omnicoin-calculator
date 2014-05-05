@@ -30,7 +30,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', function(req,res) {
 	request({
-		uri: 'http://omnicoinexplorer.com/chain/OmniCoin/q/getdifficulty',
+		uri: 'http://omnicha.in/chain/OmniCoin/q/getdifficulty',
 		timeout: 3000
 }, function(err, resp, body) {
 		if (err) {
